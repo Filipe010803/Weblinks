@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body * {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+}
+
+body{
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+}
+
+#container{
+  width: 100%;
+  max-width: 588px;
+  height: 100%;
+  margin: auto;
+  padding: 0 24px;
+}
+
+header {
+  text-align: center;
+}
+
+header img{
+  width: 112px;
+  margin: 24px auto 0px;
+}
+
+header p{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px;
+}
+
+#swish {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#swish button {
+  width: 32px;
+  height: 32px;
+  top: 50%;
+  border-radius: 50%;
+  background: white url(./assets/moon-stars.svg) no-repeat center;
+  position: absolute;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+#swish span {
+  width: 64px;
+  height: 24px;
+  display: block;
+  border-radius: 50px;
+  border: 1px solid red;
+}
+
+#links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+ul li {
+  width: 100%;
+  height: 124px;
+  list-style: none;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+ul li a {
+  height: 100%;
+
+  padding: 40px;
+
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  opacity: 0;
+}
+
+ul .spotfy {
+  background-image: url(./assets/spotfay.png);
+  transition: background 0.5s;
+}
+
+ul .spotfy:hover {
+  background-image: url(./assets/spotfay-hover.png);
+}
+
+ul .rd {
+  background-image: url(./assets/rd.png);
+  transition: background 0.5s;
+}
+
+ul .rd:hover {
+  background-image: url(./assets/rd-hover.png);
+}
+
+ul .rocketseat {
+  background-image: url(./assets/rocketseat.png);
+  transition: background 0.5s;
+}
+
+ul .rocketseat:hover {
+  background-image: url(./assets/rocketseat-hover.png);
+}
+
+ul .treino {
+  background-image: url(./assets/traino.png);
+  transition: background 0.5s;
+}
+
+ul .treino:hover {
+  background-image: url(./assets/treino-hover.png);
+}
