@@ -4,13 +4,34 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --bg-links: rgba(36, 36, 36, 1);
+  --border-color: rgba(255, 255, 255, 1);
+  --bg-hover: rgba(255, 255, 255, 0.2);
+  --bg-swish: rgba(255, 255, 255, 0.5);
+  --swish-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --bg-links: rgba(200, 200, 200, 1);
+  --border-color: rgba(0, 0, 0, 1);
+  --bg-hover: rgba(0, 0, 0, 0.1);
+  --bg-swish: rgba(0, 0, 0, 0.5);
+  --swish-bg-url: url(./assets/sum.svg);
+}
+
 body * {
   font-family: 'Inter', sans-serif;
-  color: #ffffff;
+  color: var(--text-color);
 }
 
 body{
-  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 #container{
@@ -40,18 +61,30 @@ header p{
 #swish {
   position: relative;
   width: 64px;
-  margin: 4px auto;
+  margin: 24px auto;
 }
 
 #swish button {
   width: 32px;
   height: 32px;
   top: 50%;
+
+  border: 0;
   border-radius: 50%;
-  background: white url(./assets/moon-stars.svg) no-repeat center;
+
+  background: white var(--swish-bg-url) no-repeat center;
   position: absolute;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-out 0.5s forwards;
+}
+
+.light #swish button {
+  animation: slide-in 0.5s forwards;
+}
+
+#swish button:hover{
+  outline: 8px solid var(--bg-hover);
 }
 
 #swish span {
@@ -59,7 +92,8 @@ header p{
   height: 24px;
   display: block;
   border-radius: 50px;
-  border: 1px solid red;
+  border: 1px solid var(--border-color);
+  background: var(--bg-swish);
 }
 
 #links {
@@ -74,8 +108,7 @@ ul li {
   width: 100%;
   height: 124px;
   list-style: none;
-
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
 }
 
@@ -83,6 +116,8 @@ ul li a {
   height: 100%;
 
   padding: 40px;
+  background: linear-gradient(to left, var(--bg-links), var(--bg-links), rgba(0, 0, 0, 0));
+  border-radius: 20px;
 
   display: flex;
   justify-content: right;
@@ -91,41 +126,85 @@ ul li a {
 }
 
 ul li a:hover {
-  opacity: 0;
+  animation: gradient-in 0.5s forwards;
 }
 
 ul .spotfy {
   background-image: url(./assets/spotfay.png);
-  transition: background 0.5s;
-}
-
-ul .spotfy:hover {
-  background-image: url(./assets/spotfay-hover.png);
 }
 
 ul .rd {
   background-image: url(./assets/rd.png);
-  transition: background 0.5s;
-}
-
-ul .rd:hover {
-  background-image: url(./assets/rd-hover.png);
+  
 }
 
 ul .rocketseat {
   background-image: url(./assets/rocketseat.png);
-  transition: background 0.5s;
-}
-
-ul .rocketseat:hover {
-  background-image: url(./assets/rocketseat-hover.png);
 }
 
 ul .treino {
-  background-image: url(./assets/traino.png);
-  transition: background 0.5s;
+  background-image: url(./assets/treino.png);
 }
 
-ul .treino:hover {
-  background-image: url(./assets/treino-hover.png);
+#socialLinks {
+  margin: 30px 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+#socialLinks a {
+  border-radius: 50%;
+}
+
+#socialLinks a:hover {
+  background: var(--bg-hover);
+}
+
+ion-icon {
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+}
+
+footer {
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes gradient-in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+ from {
+  left: 0;
+ }
+ to{
+  left: 50%;
+ }
+}
+
+@keyframes slide-out {
+ from {
+  right: 0;
+ }
+ to{
+  right: 50%;
+ }
 }
